@@ -1,25 +1,26 @@
 # Phenesty AI Video Studio
 
-A responsive prompt-to-video website using a hosted AI text-to-video provider. The website runs locally on Windows; actual video inference is requested from the cloud, so the laptop does not need to load the video model into its 8 GB RAM.
+A Flask prompt-to-video app using a hosted Hugging Face Inference Provider. Video generation requires a valid Hugging Face token and a provider/model that supports text-to-video.
 
-## Start on Windows
+## Deploy on Render
 
-1. Install Python 3.10+ if needed.
-2. Follow the one-time token configuration in `SETUP_FREE_AI.md`.
-3. Double-click `START_VIDEO_STUDIO.bat`.
-4. Open `http://127.0.0.1:5000` in Chrome and keep the black command window open.
+This repository includes a `render.yaml` Blueprint configuration. In Render, choose **New + → Blueprint** and select this repository. The service uses:
 
-## Free-only policy and limitations
+- Build: `pip install -r requirements.txt`
+- Start: `gunicorn app:app`
+- Health check: `/api/health`
 
-Hosted video generation is not guaranteed to be free or available. Hugging Face currently documents a small monthly free allowance for Inference Providers, subject to change, and it may not cover a video request. Do not add payment details or buy credits if you require zero cost. When the model cannot run, the app reports an error; it no longer generates a fake video with the prompt written on it.
+When Render asks for `HF_TOKEN`, enter it in Render's environment settings. **Never commit your token or put it in frontend code.** The `render.yaml` marks it as a secret (sync false), so it must be set privately in Render.
 
-## Configuration
+## Important free-tier limitations
 
-Create a `.env` file based on `.env.example`, set `HF_TOKEN` to a Hugging Face token with inference permissions, and keep the token private. Provider/model can be changed using `HF_VIDEO_PROVIDER` and `HF_VIDEO_MODEL`.
+Render's free web service may sleep when idle and has limited resources. Hosted AI inference is not guaranteed to be free or available; provider credits and model access are controlled by Hugging Face/provider. If inference fails, the app reports an error rather than substituting a fake video.
 
-## Safety and scope
+## Local Windows use
 
-- The server listens only on `127.0.0.1` by default.
-- The token stays in the local backend `.env` file and is not sent to the browser.
-- This is a development prototype, not a public multi-user production service.
-- The chosen provider/model may limit duration, aspect ratio, output quality, or availability.
+1. Install Python 3.10+.
+2. Copy `.env.example` to `.env` and configure `HF_TOKEN` locally.
+3. Run `START_VIDEO_STUDIO.bat`.
+4. Visit `http://127.0.0.1:5000`.
+
+Do not commit `.env`, generated MP4 files, virtual environments, or private tokens.
