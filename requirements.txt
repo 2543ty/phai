@@ -2,3 +2,4 @@ Flask>=3.0,<4.0
 huggingface_hub>=0.30.0
 python-dotenv>=1.0.0
 gunicorn>=22.0,<24.0
+magic_hour>=0.1.0
