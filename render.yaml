@@ -3,8 +3,8 @@ services:
     name: phenesty-ai-video-studio
     runtime: python
     plan: free
-    buildCommand: bash build.sh
-    startCommand: bash start.sh
+    buildCommand: python3 -m pip install --upgrade pip && python3 -m pip install --no-cache-dir -r requirements.txt && python3 -c "import gunicorn; print('Gunicorn installed:', gunicorn.__version__)"
+    startCommand: python3 -m gunicorn app:app
     healthCheckPath: /api/health
     envVars:
       - key: HF_TOKEN
