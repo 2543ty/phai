@@ -3,8 +3,8 @@ services:
     name: phenesty-ai-video-studio
     runtime: python
     plan: free
-    buildCommand: ./build.sh
-    startCommand: ./start.sh
+    buildCommand: bash build.sh
+    startCommand: bash start.sh
     healthCheckPath: /api/health
     envVars:
       - key: HF_TOKEN
