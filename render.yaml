@@ -1,10 +1,10 @@
 services:
   - type: web
     name: phenesty-ai-video-studio
-    runtime: docker
+    runtime: python
     plan: free
-    dockerfilePath: ./Dockerfile
-    dockerContext: .
+    buildCommand: bash build.sh
+    startCommand: bash start.sh
     healthCheckPath: /api/health
     envVars:
       - key: HF_TOKEN
