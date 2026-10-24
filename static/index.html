@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#090d19"><title>Phenesty AI Video Studio</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header><a href="/">Phenesty <b>AI</b> Video Studio</a><span>TEXT TO VIDEO</span></header>
+<main>
+<section class="intro"><p>YOUR IMAGINATION, IN MOTION</p><h1>Ideas into <em>moving pictures.</em></h1><span>Describe a scene and send it to a hosted AI video model.</span></section>
+<section class="workspace">
+<form id="generate-form">
+<h2>Create a video</h2>
+<label for="prompt">YOUR PROMPT</label>
+<textarea id="prompt" maxlength="500" minlength="5" required placeholder="A lion walking across the African savannah at golden sunset, cinematic lighting..."></textarea>
+<div class="counter" id="char-count">0 / 500</div>
+<div class="fields">
+<div><label for="style">STYLE</label><select id="style"><option value="cinematic">Cinematic</option><option value="animation">Animation</option><option value="documentary">Documentary</option><option value="fantasy">Fantasy</option></select></div>
+<div><label for="duration">DURATION</label><select id="duration"><option value="4">4 seconds</option><option value="6">6 seconds</option><option value="8">8 seconds</option></select></div>
+</div>
+<label>ASPECT RATIO</label><select id="ratio"><option value="16:9">Landscape (16:9)</option><option value="9:16">Portrait (9:16)</option></select>
+<button id="generate-btn" type="submit">Generate AI video ↗</button>
+<p class="note">Cloud model availability and free credits depend on the provider. No fake video is substituted if generation fails.</p>
+</form>
+<section class="preview"><h2>YOUR CANVAS</h2><div id="canvas"><p id="status-text">Your AI-generated video will appear here.</p><video id="result-video" controls playsinline hidden></video></div><a id="download-link" hidden download>Download video</a></section>
+</section>
+</main>
+<script src="/static/app.js"></script>
+</body></html>
