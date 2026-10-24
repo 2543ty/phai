@@ -3,8 +3,8 @@ services:
     name: phenesty-ai-video-studio
     runtime: python
     plan: free
-    buildCommand: pip3 install -r requirements.txt
-    startCommand: gunicorn app:app
+    buildCommand: ./build.sh
+    startCommand: ./start.sh
     healthCheckPath: /api/health
     envVars:
       - key: HF_TOKEN
