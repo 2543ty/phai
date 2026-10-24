@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1020">
+  <meta name="description" content="Generate AI videos from text prompts with Phenesty AI Video Studio.">
+  <title>Phenesty AI Video Studio</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="Phenesty AI Video Studio home">
+      <span class="brand-mark">P</span><span>Phenesty <b>AI</b></span>
+    </a>
+    <span class="top-pill"><span class="dot"></span> VIDEO STUDIO · EARLY ACCESS</span>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="eyebrow"><span>✦</span> YOUR IMAGINATION, IN MOTION</div>
+      <h1>Ideas into <span>moving pictures.</span></h1>
+      <p class="hero-copy">Describe a scene and send it to a hosted AI video model. Availability depends on free inference credits.</p>
+    </section>
+
+    <section class="workspace">
+      <div class="form-panel">
+        <div class="panel-heading">
+          <div><div class="step-label">CREATE</div><h2>What should we make?</h2></div>
+          <span class="sparkle">✳</span>
+        </div>
+        <form id="generate-form">
+          <label for="prompt">YOUR PROMPT</label>
+          <textarea id="prompt" maxlength="500" required minlength="5" placeholder="A lone explorer walks through a glowing forest at night, mist drifting between ancient trees, cinematic lighting…"></textarea>
+          <div class="prompt-foot"><span>Be descriptive for better creative direction</span><span id="char-count">0 / 500</span></div>
+          <div class="examples">
+            <button type="button" class="example" data-prompt="A lion walking across the African savannah at golden sunset, cinematic atmosphere">African savannah</button>
+            <button type="button" class="example" data-prompt="A futuristic city in the clouds, flying vehicles and glowing blue architecture">Future city</button>
+            <button type="button" class="example" data-prompt="A tiny astronaut exploring a colorful alien garden, whimsical animated style">Alien garden</button>
+          </div>
+          <div class="settings-grid">
+            <div class="field">
+              <label for="style">VISUAL DIRECTION</label>
+              <select id="style">
+                <option value="cinematic">Cinematic</option>
+                <option value="animation">Animation</option>
+                <option value="documentary">Documentary</option>
+                <option value="fantasy">Fantasy</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="duration">DURATION</label>
+              <select id="duration">
+                <option value="4">4 seconds</option>
+                <option value="6">6 seconds</option>
+                <option value="8">8 seconds</option>
+              </select>
+            </div>
+            <div class="field field-wide">
+              <label>ASPECT RATIO</label>
+              <div class="ratio-options">
+                <label class="ratio selected"><input type="radio" name="ratio" value="16:9" checked><span class="ratio-icon landscape"></span><span>Landscape <small>16:9</small></span></label>
+                <label class="ratio"><input type="radio" name="ratio" value="9:16"><span class="ratio-icon portrait"></span><span>Portrait <small>9:16</small></span></label>
+              </div>
+            </div>
+          </div>
+          <button class="generate-btn" id="generate-btn" type="submit"><span>✦</span> Generate AI video <span class="arrow">↗</span></button>
+          <p class="fine-print">Hosted AI model · Free credits may be limited · Never enter private information</p>
+        </form>
+      </div>
+      <div class="preview-panel">
+        <div class="preview-top"><span>YOUR CANVAS</span><span class="live-tag"><i></i> READY</span></div>
+        <div class="preview-canvas" id="preview-canvas">
+          <div class="preview-orb orb-one"></div><div class="preview-orb orb-two"></div>
+          <div class="preview-content" id="preview-content">
+            <div class="play-symbol">▶</div>
+            <div class="preview-title">Your next idea<br><em>starts here.</em></div>
+            <p>Your AI-generated video will appear here.</p>
+          </div>
+          <video id="result-video" controls playsinline hidden></video>
+        </div>
+        <div class="job-status" id="job-status" aria-live="polite"><span class="status-icon">✦</span><span id="status-text">Ready when you are</span></div>
+        <div class="preview-bottom"><span>MP4 OUTPUT</span><span id="output-size">Waiting for your prompt</span></div>
+        <a class="download-btn disabled" id="download-link" href="#" aria-disabled="true">↓ &nbsp; Download video</a>
+        <p class="demo-note"><b>Free-use note:</b> This uses a hosted AI model. Free credits and model access are controlled by the provider; if the hosted model is unavailable or credits are exhausted, the app will show an error instead of creating a fake text-card video.</p>
+      </div>
+    </section>
+
+    <section class="steps">
+      <div><span>01</span><b>Describe it</b><p>Put your imagination into words.</p></div>
+      <div><span>02</span><b>Shape the mood</b><p>Choose the look and format.</p></div>
+      <div><span>03</span><b>Bring it to life</b><p>Generate, preview, and save.</p></div>
+    </section>
+    <footer><span>PHENESTY AI STUDIO</span><span>Made for ideas that move.</span></footer>
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+</html>
