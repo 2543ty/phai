@@ -17,11 +17,11 @@
 <div class="counter" id="char-count">0 / 500</div>
 <div class="fields">
 <div><label for="style">STYLE</label><select id="style"><option value="cinematic">Cinematic</option><option value="animation">Animation</option><option value="documentary">Documentary</option><option value="fantasy">Fantasy</option></select></div>
-<div><label for="duration">DURATION</label><select id="duration"><option value="4">4 seconds</option><option value="6">6 seconds</option><option value="8">8 seconds</option></select></div>
+<div><label for="duration">DURATION</label><select id="duration"><option value="5">5 seconds (free-tier model)</option></select></div>
 </div>
 <label>ASPECT RATIO</label><select id="ratio"><option value="16:9">Landscape (16:9)</option><option value="9:16">Portrait (9:16)</option></select>
 <button id="generate-btn" type="submit">Generate AI video ↗</button>
-<p class="note">Cloud model availability and free credits depend on the provider. No fake video is substituted if generation fails.</p>
+<p class="note">Magic Hour trial credits are limited. Current free-tier setup targets 5-second, 480p clips. No fake video is substituted if generation fails.</p>
 </form>
 <section class="preview"><h2>YOUR CANVAS</h2><div id="canvas"><p id="status-text">Your AI-generated video will appear here.</p><video id="result-video" controls playsinline hidden></video></div><a id="download-link" hidden download>Download video</a></section>
 </section>
