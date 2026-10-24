@@ -7,6 +7,8 @@ services:
     startCommand: bash start.sh
     healthCheckPath: /api/health
     envVars:
+      - key: MAGIC_HOUR_API_KEY
+        sync: false
       - key: HF_TOKEN
         sync: false
       - key: HF_VIDEO_MODEL
