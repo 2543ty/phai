@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: phenesty-ai-video-studio
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    healthCheckPath: /api/health
+    envVars:
+      - key: HF_TOKEN
+        sync: false
+      - key: HF_VIDEO_MODEL
+        value: Wan-AI/Wan2.2-TI2V-5B
+      - key: HF_VIDEO_PROVIDER
+        value: fal-ai
